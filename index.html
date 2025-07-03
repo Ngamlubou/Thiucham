@@ -61,7 +61,6 @@
         padding: 10px 20px;
         background-color: #1c1d7b;
         color: #ffffff;
-        text-decoration: none;
         border: none;
         cursor: pointer;
         border-radius: 4px;
@@ -103,9 +102,7 @@
               reviewsContainer.innerHTML = '<p>No reviews available.</p>';
             } else {
               reviews.forEach(r => {
-                const rawStars = Number(r.stars);
-                const safeStars = Math.max(0, Math.min(Math.round(rawStars || 0), 5));
-                const starsDisplay = safeStars > 0 ? '⭐️'.repeat(safeStars) : 'No Rating';
+                const starsDisplay = r.stars ? r.stars : 'No Rating';
 
                 const div = document.createElement('div');
                 div.className = 'review';
