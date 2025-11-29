@@ -112,7 +112,7 @@
                     <div class="stars">${starsDisplay}</div>
                     <div class="time">${r.timeAgo}</div>
                   </div>
-                  <div class="comment">${r.comment}</div><div class="comment">${r.reply}</div>
+                  <div class="comment">${r.comment}</div><div class="comment">${r.reply || ''}</div>
                 `;
                 reviewsContainer.appendChild(div);
               });
