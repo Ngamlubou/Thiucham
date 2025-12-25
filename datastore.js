@@ -1,19 +1,34 @@
 /* datastore.js */
-
 const DataStore = {
   cache: {},
 
-async get(listName) {
-  if (this.cache[listName]) return this.cache[listName];
+  async get(listName) {
+    log("DataStore.get() called:", listName);
 
-  const response = await fetch(`data/${listName}.json`);
+    if (this.cache[listName]) {
+      log("Cache hit:", listName);
+      return this.cache[listName];
+    }
 
-  if (!response.ok) {
-    throw new Error(`Failed to load data/${listName}.json`);
+    const url = `data/${listName}.json`;
+    log("Fetching:", url);
+
+    try {
+      const response = await fetch(url);
+
+      if (!response.ok) {
+        throw new Error(`HTTP ${response.status}`);
+      }
+
+      const data = await response.json();
+      log("Loaded rows:", data.length);
+
+      this.cache[listName] = data;
+      return data;
+
+    } catch (e) {
+      errorLog("Failed to load", url, e);
+      throw e;
+    }
   }
-
-  const data = await response.json();
-  this.cache[listName] = data;
-  return data;
-}
 };
