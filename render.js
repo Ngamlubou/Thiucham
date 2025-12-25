@@ -12,7 +12,7 @@ function renderListUI(listName, rows) {
     <h2>${listName.toUpperCase()}</h2>
     <ul class="list">
       ${rows.map(row => `
-        <li data-id="${row.id}">
+        <li data-id="${row.ID}">
           <strong>${row.Title}</strong><br>
           <small>${row.Key || ""}</small>
         </li>
