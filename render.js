@@ -1,6 +1,10 @@
 /* render.js */
 
-const app = document.getElementById("app");
+let app;
+
+document.addEventListener("DOMContentLoaded", () => {
+  app = document.getElementById("app");
+});
 
 /* List UI snippet */
 function renderListUI(listName, rows) {
