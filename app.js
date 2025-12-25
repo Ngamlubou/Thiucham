@@ -11,8 +11,8 @@ async function showList(listName) {
 
 async function showDetail(listName, id) {
   const rows = await DataStore.get(listName);
-  const row = rows.find(r => r.id === id);
-
+ const row = rows.find(r => String(r.ID) === String(id));
+ 
   renderDetailUI(listName, row);
 
   document.getElementById("backBtn").onclick = () => {
@@ -21,7 +21,7 @@ async function showDetail(listName, id) {
 }
 
 /* App entry */
-const LISTS = ["Luisan", "Hiuna Khomlui", "Khristen Madui Lui"];
+const LISTS = ["Hiuna Khomlui", "Khristen Madui Lui"];
 
 document.addEventListener("DOMContentLoaded", () => {
   showList(LISTS[0]);
