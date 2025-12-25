@@ -21,8 +21,8 @@ async function showDetail(listName, id) {
 }
 
 /* App entry */
-const LISTS = [
-  "Luisan",
-  "Hiuna Khomlui",
-  "Khristen Madui Lui" ];
-showList(LISTS[0]);
+const LISTS = ["Luisan", "Hiuna Khomlui", "Khristen Madui Lui"];
+
+document.addEventListener("DOMContentLoaded", () => {
+  showList(LISTS[0]);
+});
