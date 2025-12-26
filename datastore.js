@@ -1,15 +1,19 @@
 /* datastore.js */
 
 const DataStore = {
-  cache: {},
+  data: null,
 
-async get(listName) {
-  if (this.cache[listName]) return this.cache[listName];
+  async load(listName) {
+    if (this.data) return;
+    const response = await fetch(`data/${listName}.json`);
+    this.data = await response.json();
+  },
 
-  const response = await fetch(`data/${listName}.json`);
+  getAll() {
+    return this.data || [];
+  },
 
-  const data = await response.json();
-  this.cache[listName] = data;
-  return data;
-}
+  getByIndex(i) {
+    return this.data?.[i] || null;
+  }
 };
