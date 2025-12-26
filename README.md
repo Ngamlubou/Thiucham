@@ -1,2 +1,2 @@
 # Thiucham
-Everything for thiucham script file related to GitHub 
+Static web app with the minimum features and space. 
