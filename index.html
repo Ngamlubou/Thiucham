@@ -25,31 +25,16 @@
 
   <div class="lyrics" id="lyrics"></div>
 
-  <!-- 1️⃣ Load DataStore first -->
-  <script src="datastore.js"></script>
+ <script src="Hiuna_Khomlui.js"></script>
 
-  <!-- 2️⃣ App logic -->
-  <script>
-    async function loadFirstSong() {
-      try {
-        // Get data through DataStore
-        const data = await DataStore.load('Hiuna_Khomlui');
-const song = DataStore.getByIndex(0);
+<script>
+  const song = Hiuna_Khomlui[0];
 
-        // Render
-        document.getElementById('id').textContent = song.ID;
-        document.getElementById('title').textContent = song.Title;
-        document.getElementById('key').textContent = song.Key;
-        document.getElementById('time').textContent = song["Time signature"];
-        document.getElementById('lyrics').textContent = song.Lyrics;
-
-      } catch (err) {
-        console.error('Error loading song:', err);
-      }
-    }
-
-    loadFirstSong();
-  </script>
-
+  document.getElementById('id').textContent = song.ID;
+  document.getElementById('title').textContent = song.Title;
+  document.getElementById('key').textContent = song.Key;
+  document.getElementById('time').textContent = song["Time signature"];
+  document.getElementById('lyrics').textContent = song.Lyrics;
+</script>
 </body>
-  </html>
+</html>
