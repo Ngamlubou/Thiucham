@@ -1,2 +1,3 @@
 # Thiucham
-Everything for thiucham script file related to GitHub 
+Static web page for the review viewing space. 
+Loaded from App Script and data in spreadsheets. 
