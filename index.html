@@ -11,7 +11,7 @@
       line-height: 1.6;
     }
     .lyrics {
-      white-space: pre-line; /* keeps line breaks */
+      white-space: pre-line;
       margin-top: 10px;
     }
   </style>
@@ -25,24 +25,33 @@
 
   <div class="lyrics" id="lyrics"></div>
 
+  <!-- 1️⃣ Load DataStore first -->
+  <script src="datastore.js"></script>
+
+  <!-- 2️⃣ App logic -->
   <script>
-    fetch('Hiuna_Khomlui.json')
-      .then(response => response.json())
-      .then(data => {
-        // Get the first song
+    async function loadFirstSong() {
+      try {
+        // Get data through DataStore
+        const data = await DataStore.get('Hiuna_Khomlui');
+
+        // First song
         const song = data[0];
 
-        // Fill the page
+        // Render
         document.getElementById('id').textContent = song.ID;
         document.getElementById('title').textContent = song.Title;
         document.getElementById('key').textContent = song.Key;
         document.getElementById('time').textContent = song["Time signature"];
         document.getElementById('lyrics').textContent = song.Lyrics;
-      })
-      .catch(error => {
-        console.error('Error loading JSON:', error);
-      });
+
+      } catch (err) {
+        console.error('Error loading song:', err);
+      }
+    }
+
+    loadFirstSong();
   </script>
 
 </body>
-</html>
+  </html>
