@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Hiuna Khomlui</title>
+
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      padding: 20px;
+      line-height: 1.6;
+    }
+    .lyrics {
+      white-space: pre-line; /* keeps line breaks */
+      margin-top: 10px;
+    }
+  </style>
+</head>
+<body>
+
+  <h1 id="title">Loading...</h1>
+  <p><strong>ID:</strong> <span id="id"></span></p>
+  <p><strong>Key:</strong> <span id="key"></span></p>
+  <p><strong>Time Signature:</strong> <span id="time"></span></p>
+
+  <div class="lyrics" id="lyrics"></div>
+
+  <script>
+    fetch('Hiuna_Khomlui.json')
+      .then(response => response.json())
+      .then(data => {
+        // Get the first song
+        const song = data[0];
+
+        // Fill the page
+        document.getElementById('id').textContent = song.ID;
+        document.getElementById('title').textContent = song.Title;
+        document.getElementById('key').textContent = song.Key;
+        document.getElementById('time').textContent = song["Time signature"];
+        document.getElementById('lyrics').textContent = song.Lyrics;
+      })
+      .catch(error => {
+        console.error('Error loading JSON:', error);
+      });
+  </script>
+
+</body>
+</html>
