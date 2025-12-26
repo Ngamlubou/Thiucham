@@ -33,10 +33,8 @@
     async function loadFirstSong() {
       try {
         // Get data through DataStore
-        const data = await DataStore.get('Hiuna_Khomlui');
-
-        // First song
-        const song = data[0];
+        const data = await DataStore.load('Hiuna_Khomlui');
+const song = DataStore.getByIndex(0);
 
         // Render
         document.getElementById('id').textContent = song.ID;
