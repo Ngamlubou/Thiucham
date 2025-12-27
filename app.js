@@ -36,13 +36,13 @@ function renderSongList(songArray) {
     listEl.appendChild(li); });}
 
 function toggleSearch() {
-  if (searchInput.style.display === "none") {
-    searchInput.style.display = "block";
-    searchInput.focus();
-  } else {
-    searchInput.value = "";
+  const isHidden = getComputedStyle(searchInput).display === "none";
+
+  if (isHidden) { searchInput.style.display = "block";
+    searchInput.focus(); } 
+else { searchInput.value = "";
     searchInput.style.display = "none";
-    renderSongList(baseSongs);  }}
+    renderSongList(baseSongs); }}
 
 searchInput.addEventListener("input", () => { const q = searchInput.value.trim().toLowerCase();
 
