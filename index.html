@@ -27,9 +27,7 @@
   margin-top: 10px;}
 
 .translation {  white-space: pre-line;
-  margin-top: 16px;
-  font-style: italic;
-  opacity: 0.85;    }
+  font-style: italic;  }
 
 .top-bar {
   position: fixed;
@@ -51,7 +49,7 @@
   font-size: 20px;
   cursor: pointer;}
 
-.top-title {
+.top-name {
   flex: 1;
   text-align: center;
   font-weight: bold;
@@ -97,8 +95,7 @@
 <div class="top-bar">
   <div class="top-menu">☰</div>
 
-  <div class="top-title" id="viewTitle">
-    Hiuna Khomlui  </div>
+  <div class="top-name" id="viewName"></div>
 
   <div class="top-search" onclick="toggleSearch()">🔍</div>
 
@@ -108,7 +105,7 @@
     placeholder="Search..."  />
 </div>
 <ul id="songList"></ul>
-<ul id="songDetail"></ul>
+<div id="songDetail"></div>
 
 <script src="Hiuna_Khomlui.js"></script>
 <script src="Luisan.js"></script>
@@ -116,15 +113,8 @@
 <script src="app.js"></script>  
 
 <div class="bottom-bar">
-  <div class="bottom-item" onclick="renderSongList(Hiuna_Khomlui)">
-    Hiuna Khomlui
-  </div>
-  <div class="bottom-item" onclick="renderSongList(Khristen_Madui_Lui)">
-    Khristen Madui Lui
-  </div>
-  <div class="bottom-item" onclick="renderSongList(Luisan)">
-    Luisan
-  </div>
-</div>
+<div class="bottom-item" onclick="switchDataset(Hiuna_Khomlui)">Hiuna Khomlui</div>
+<div class="bottom-item" onclick="switchDataset(Khristen_Madui_Lui)">Khristen Madui Lui</div>
+<div class="bottom-item" onclick="switchDataset(Luisan)">Luisan</div></div>
 </body>
-    </html>
+</html>
