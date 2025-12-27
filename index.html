@@ -43,28 +43,23 @@
   </style>  
 </head>
 <body>
-<h2>Hiuna Khomlui</h2>
+
 <ul id="songList"></ul>
 <script src="Hiuna_Khomlui.js"></script>
-  <script>
-    const listEl = document.getElementById("songList");
+<script src="Luisan.js"></script>
+<script src="Khristen_Madui_Lui.js"></script>
+<script src="app.js"></script>  
 
-    // Render LIST ONLY
-    Hiuna_Khomlui.forEach(song => {
-      const li = document.createElement("li");
-
-      li.innerHTML = `
-        <span class="id">${song.ID}</span>
-        <span class="title">${song.Title}</span>
-      `;
-
-      listEl.appendChild(li);
-    });
-  </script>
 <div class="bottom-bar">
-  <div class="bottom-item">Hiuna Khomlui</div>
-  <div class="bottom-item">Khristen Madui Lui</div>
-  <div class="bottom-item">Luisan</div>
+  <div class="bottom-item" onclick="renderSongList(Hiuna_Khomlui)">
+    Hiuna Khomlui
+  </div>
+  <div class="bottom-item" onclick="renderSongList(Khristen_Madui_Lui)">
+    Khristen Madui Lui
+  </div>
+  <div class="bottom-item" onclick="renderSongList(Luisan)">
+    Luisan
+  </div>
 </div>
 </body>
 </html>
