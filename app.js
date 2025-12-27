@@ -81,3 +81,8 @@ function showSongDetail(index) {
     <div class="lyrics">${song.Lyrics}</div> `;}
 /* ========= DEFAULT VIEW ========= */
 switchDataset(Hiuna_Khomlui);
+
+// ========= PWA: Service Worker =========
+if ("serviceWorker" in navigator) {
+  window.addEventListener("load", () => {
+    navigator.serviceWorker.register("sw.js"); });}
