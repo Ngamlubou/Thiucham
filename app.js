@@ -1,28 +1,19 @@
-/* app.js */
+const listEl = document.getElementById("songList");
 
-async function showList(listName) {
-  const rows = await DataStore.get(listName);
-  renderListUI(listName, rows);
+/**
+ * Render song list (ID + Title only)
+ */
+function renderSongList(songArray) {
+  listEl.innerHTML = ""; // clear previous list
 
-  document.querySelectorAll(".list li").forEach(li => {
-    li.onclick = () => showDetail(listName, li.dataset.id);
-  });
-}
+  songArray.forEach(song => {
+    const li = document.createElement("li");
 
-async function showDetail(listName, id) {
-  const rows = await DataStore.get(listName);
- const row = rows.find(r => String(r.ID) === String(id));
- 
-  renderDetailUI(listName, row);
+    li.innerHTML = `
+      <span class="id">${song.ID}</span>
+      <span class="title">${song.Title}</span>  `;
 
-  document.getElementById("backBtn").onclick = () => {
-    showList(listName);
-  };
-}
+    listEl.appendChild(li); });}
 
-/* App entry */
-const LISTS = ["Hiuna_Khomlui", "Khristen_Madui_Lui"];
-
-document.addEventListener("DOMContentLoaded", () => {
-  showList(LISTS[0]);
-});
+/* ========= DEFAULT VIEW ========= */
+renderSongList(Hiuna_Khomlui);
